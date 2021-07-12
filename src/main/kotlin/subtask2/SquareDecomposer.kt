@@ -36,21 +36,18 @@ class SquareDecomposer {
 
         fun findNumbers(n: Long, k: Int): MutableList<Int> {
             for (i in k-1 downTo 1) {
-                if (square(k) == n) {
+                if (square(k) <= n) {
                     result.add(i)
                     val rest = n - square(i)
                     val next = sqrt(rest.toDouble()).toInt()
                     if (rest.toInt() == 1) {
                         result.add(1)
-                    } else {
-                        findNumbers(rest, next)
                     }
                 }
             }
             return result
         }
 
-        //findNumbers(numberToDecompose, number)
 
         return findNumbers(numberToDecompose, number).toTypedArray()
     }
